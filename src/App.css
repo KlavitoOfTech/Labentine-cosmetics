@@ -1,38 +1,165 @@
-.App {
-  text-align: center;
+/* General */
+body {
+  background-image: url('./background-shopping-logo.jpg');
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+/* Keyframe Animations */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Nav Section */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #a5612a;
+  position: fixed;
+  top: 60px;
+  left: 60px;
+  width: 80%;
+  height: 40px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover:not(.sign-up) {
+  color: #ffffffa4;
+}
+
+.logo {
+  color: #fff;
+}
+
+/* Signup Button */
+.navbar .sign-up {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #a5612a;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.sign-up:hover {
+  background-color: #eeeded;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 400px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 48px;
+  color:  #a5612a;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.shop-now {
+  background:  #a5612a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.3s ease;
+}
+
+.shop-now:hover {
+  transform: scale(1.1);
+}
+
+/* Hero Images with Overlap Effect */
+.hero-images {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-image {
+  margin-top: 150px;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.overlay-image {
+  position: absolute;
+  top: 250px;
+  left: 175px;
+  width: 75%;
+  z-index: 2;
+  opacity: 0.9;
+  animation: slideIn 1.2s ease-in-out;
+}
+
+/* Hover Effect */
+.hero-images:hover .main-image {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.hero-images:hover .overlay-image {
+  transform: scale(1.1) rotate(-3deg);
 }
