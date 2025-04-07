@@ -370,34 +370,11 @@ html {
   margin-bottom: 2rem;
 }
 
-.contact-form {
+.contact-icons {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.contact-input,
-.contact-textarea {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  resize: none;
-}
-
-.contact-button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  color: white;
-  background-color: #2563eb;
-  border: none;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contact-button:hover {
-  background-color: #1e40af;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 
