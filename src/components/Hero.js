@@ -2,8 +2,11 @@ import React from "react";
 import MainImage from "../images/skincare-pic-1.jpg";
 import SecondaryImage from "../images/skincare-pic-2.jpg";
 import { products } from './data.js'; // Import products from data.js
-import About from '../images/about-us-img.jpg'
-import Logo from "../images/labentine-logo.png"
+import About from '../images/about-us-img.jpg';
+import Logo from "../images/labentine-logo.png";
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
+
 
 export default function Hero() {
   return (
@@ -82,31 +85,15 @@ export default function Hero() {
           <p className="contact-subtext">
             I’d love to hear from you! Reach out anytime via the platforms below.
           </p>
-
-          <div className="contact-links">
-            <a
-              href="https://wa.me/1234567890"
-              className="contact-link whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp
+          <div className="contact-icons">
+            <a href="https://wa.me/2348110862695" target="_blank" rel="noopener noreferrer">
+              <FaWhatsapp size={30} color="#25D366" />
             </a>
-
-            <a
-              href="https://instagram.com/yourhandle"
-              className="contact-link instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
+            <a href="https://instagram.com/yourProfile" target="_blank" rel="noopener noreferrer">
+              <FaInstagram size={30} color="#E4405F" />
             </a>
-
-            <a
-              href="mailto:youremail@example.com"
-              className="contact-link email"
-            >
-              Email Me
+            <a href="mailto:yourEmail@gmail.com">
+              <SiGmail size={30} color="#D44638" />
             </a>
           </div>
         </div>
