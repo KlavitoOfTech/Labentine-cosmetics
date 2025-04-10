@@ -31,27 +31,26 @@ html {
   }
 }
 
-
 /* Nav Section */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 1rem 2.5rem; 
   background-color: #a5612a;
   position: fixed;
-  top: 80px;
-  left: 60px;
+  top: 5rem;
+  left: 3.75rem;
   width: 80%;
-  height: 40px;
+  height: 2.5rem;
   z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 1.25rem; 
   margin: 0;
   padding: 0;
 }
@@ -59,7 +58,7 @@ html {
 .navbar ul li a {
   text-decoration: none;
   color: #fff;
-  font-size: 18px;
+  font-size: 1.125rem; 
   font-weight: bold;
   transition: color 0.3s ease-in-out;
 }
@@ -70,16 +69,73 @@ html {
 
 .logo {
   color: #fff;
+  font-size: 1.5rem;
+}
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger-menu span {
+  width: 25px;
+  height: 3px;
+  background-color: #a5612a;
 }
 
 /* Signup Button */
 .navbar .sign-up {
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem; /* Adjust padding */
   background-color: #ffffff;
   color: #a5612a;
-  border-radius: 5px;
+  border-radius: 0.3125rem; /* Adjust border radius */
   text-decoration: none;
   transition: color 0.3s ease-in-out;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+}
+
+
+/* Sidebar when active - positioned to the side */
+.nav-links.active {
+  display: flex; /* This will show the sidebar */
+  flex-direction: column;
+  gap: 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* Adjust the width of your sidebar */
+  height: 100vh;
+  background-color: #a5612a;
+  z-index: 999;
+  padding-top: 2rem;
+  text-align: center;
+  transform: translateX(-100%); /* Start off-screen */
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links.active.open {
+  transform: translateX(0); /* Slide in when menu is open */
 }
 
 .sign-up:hover {
@@ -89,14 +145,13 @@ html {
 /* Logo Container */
 .logo-container {
   position: absolute;
-  top: 20px; /* Adjust top position */
-  left: 60px; /* Adjust left position */
-  z-index: 1; /* Ensures logo stays on top */
+  top: 1rem;
+  left: 5rem;
+  z-index: 1;
 }
 
-/* Logo Image */
 .logo {
-  width: 50px; /* Adjust logo size */
+  width: 3.125rem; /* Adjust logo size */
   height: auto;
 }
 
@@ -105,37 +160,37 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px;
-  gap: 40px;
+  padding: 3rem;
+  gap: 2.5rem;
   position: relative;
   overflow: hidden;
 }
 
 .hero-content {
-  max-width: 400px;
+  max-width: 25rem;
   animation: fadeIn 1s ease-in-out;
 }
 
 .hero h1 {
-  font-size: 48px;
-  color:  #a5612a;
+  font-size: 3rem;
+  color: #a5612a;
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #555;
-  margin: 10px 0;
+  margin: 0.625rem 0;
 }
 
 .shop-now {
-  background:  #a5612a;
+  background: #a5612a;
   color: white;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 0.625rem;
   transition: transform 0.3s ease;
 }
 
@@ -146,18 +201,18 @@ html {
 /* Hero Images with Overlap Effect */
 .hero-images {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 25rem;
+  height: 25rem;
 }
 
 .hero-image {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   transition: transform 0.3s ease-in-out;
 }
 
 .main-image {
-  margin-top: 150px;
+  margin-top: 9.375rem;
   position: relative;
   z-index: 1;
   animation: fadeIn 1.5s ease-in-out;
@@ -165,8 +220,8 @@ html {
 
 .overlay-image {
   position: absolute;
-  top: 250px;
-  left: 175px;
+  top: 15.625rem;
+  left: 10.9375rem;
   width: 75%;
   z-index: 2;
   opacity: 0.9;
@@ -183,7 +238,6 @@ html {
 }
 
 /* Shop Section */
-
 .shop-section {
   padding: 4rem 1rem;
 }
@@ -241,7 +295,7 @@ html {
   color: #dbdada;
   display: block;
   margin-top: 0.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .contact-now-btn {
@@ -260,9 +314,7 @@ html {
   background-color: #77451c;
 }
 
-
 /* About Section Styles */
-
 .about-section {
   padding: 4rem 1rem;
 }
@@ -294,20 +346,19 @@ html {
 
 .about-image-wrapper {
   flex: 1;
-  overflow: hidden; /* Ensure the image doesn't overflow */
+  overflow: hidden;
   border-radius: 8px;
   position: relative;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Image with animations */
 .about-image {
   border-radius: 15px;
   width: 100%;
   height: auto;
   object-fit: cover;
   opacity: 0;
-  transform: scale(0.95); /* Start slightly zoomed out */
+  transform: scale(0.95);
   animation: fadeIn 1.5s ease-out forwards, zoomIn 3s ease-out forwards;
 }
 
@@ -321,13 +372,13 @@ html {
 /* Zoom-In Animation */
 @keyframes zoomIn {
   to {
-    transform: scale(1); /* Zoom to normal size */
+    transform: scale(1);
   }
 }
 
 /* Hover Effect - Zoom-In on hover */
 .about-image-wrapper:hover .about-image {
-  transform: scale(1.1); /* Zoom-in the image */
+  transform: scale(1.1);
   transition: transform 0.3s ease;
 }
 
@@ -344,9 +395,7 @@ html {
   }
 }
 
-
 /* Contact Section Styles */
-
 .contact-section {
   padding: 4rem 1rem;
 }
@@ -372,9 +421,7 @@ html {
 
 .contact-icons {
   display: flex;
-  gap: 20px;
+  gap: 2rem;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 2rem;
 }
-
-
