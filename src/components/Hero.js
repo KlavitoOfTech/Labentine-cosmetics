@@ -20,7 +20,9 @@ export default function Hero() {
         <div className="hero-content">
           <h1>Welcome!</h1>
           <p>Discover the best skincare products for glowing skin.</p>
-          <button className="shop-now">Shop Now</button>
+          <a href="#shop">
+            <button className="shop-now">Shop Now</button>
+          </a>
         </div>
         <div className="hero-images">
           <img
