@@ -1,6 +1,4 @@
-Here’s a **GitHub README** template for your **Labentine E-commerce Website**. Feel free to customize it further if needed.
 
----
 
 # Labentine E-Commerce Website
 
