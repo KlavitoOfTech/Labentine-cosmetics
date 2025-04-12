@@ -1,21 +1,38 @@
-import React from "react";
+import React, { useState } from 'react';
 import MainImage from "../images/skincare-pic-1.jpg";
 import SecondaryImage from "../images/skincare-pic-2.jpg";
-import { products } from './data.js'; // Import products from data.js
+import { products } from './data.js';
 import About from '../images/about-us-img.jpg';
-import Logo from "../images/labentine-logo.png";
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
-
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Hero() {
+  const [activeIndices, setActiveIndices] = useState(products.map(() => 0));
+
+  const scroll = (direction, productIndex) => {
+    const maxIndex = products[productIndex].images.length - 1;
+    const newIndex = direction === 'left'
+      ? Math.max(0, activeIndices[productIndex] - 1)
+      : Math.min(maxIndex, activeIndices[productIndex] + 1);
+
+    setActiveIndices(prev => {
+      const updated = [...prev];
+      updated[productIndex] = newIndex;
+      return updated;
+    });
+  };
+
+  const goToImage = (index, productIndex) => {
+    setActiveIndices(prev => {
+      const updated = [...prev];
+      updated[productIndex] = index;
+      return updated;
+    });
+  };
+
   return (
     <>
-      {/* Logo at the top-left corner */}
-      <div className="logo-container">
-        <img src={Logo} alt="Logo" className="logo" />
-      </div>
-      {/* Hero Section */}
       <section className="hero" id="home">
         <div className="hero-content">
           <h1>Welcome!</h1>
@@ -25,29 +42,40 @@ export default function Hero() {
           </a>
         </div>
         <div className="hero-images">
-          <img
-            src={MainImage}
-            alt="Main Skincare"
-            className="hero-image main-image"
-          />
-          <img
-            src={SecondaryImage}
-            alt="Secondary Product"
-            className="hero-image overlay-image"
-          />
+            <img src={MainImage} alt="Main Skincare" className="hero-image main-image" />
+            <img src={SecondaryImage} alt="Secondary Product" className="hero-image overlay-image" />
         </div>
       </section>
 
-      {/* Shop Section */}
       <section id="shop" className="shop-section">
         <h1 className="shop-title">Shop</h1>
         <div className="shop-grid">
-          {products.map((product, index) => (
-            <div
-              key={index}
-              className="product-card"
-              style={{ backgroundImage: `url(${product.image})` }} // Set the background image here
-            >
+          {products.map((product, productIndex) => (
+            <div key={productIndex} className="product-card">
+              <div className="carousel-container">
+                <button className="scroll-btn left" onClick={() => scroll('left', productIndex)}>
+                  <ChevronLeft size={24} />
+                </button>
+                <img
+                  src={product.images[activeIndices[productIndex]]}
+                  alt=""
+                  className="carousel-img"
+                />
+                <button className="scroll-btn right" onClick={() => scroll('right', productIndex)}>
+                  <ChevronRight size={24} />
+                </button>
+              </div>
+
+              <div className="dots-container">
+                {product.images.map((_, idx) => (
+                  <span
+                    key={idx}
+                    className={`dot ${activeIndices[productIndex] === idx ? 'active' : ''}`}
+                    onClick={() => goToImage(idx, productIndex)}
+                  />
+                ))}
+              </div>
+
               <div className="product-info">
                 <h3 className="product-name">{product.name}</h3>
                 <p className="product-description">{product.description}</p>
@@ -59,7 +87,6 @@ export default function Hero() {
         </div>
       </section>
 
-          {/* About Section */}
       <section id="about" className="about-section">
         <div className="about-container">
           <div className="about-text">
@@ -71,16 +98,11 @@ export default function Hero() {
             </p>
           </div>
           <div className="about-image-wrapper">
-            <img
-              src= {About}
-              alt="About"
-              className="about-image"
-            />
+            <img src={About} alt="About" className="about-image" />
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
       <section id="contact" className="contact-section">
         <div className="contact-container">
           <h2 className="contact-title">Get in Touch</h2>
@@ -101,6 +123,5 @@ export default function Hero() {
         </div>
       </section>
     </>
-    
   );
 }
